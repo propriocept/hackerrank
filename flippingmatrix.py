@@ -44,13 +44,15 @@ def flippingMatrix(matrix):
     # d: 1, 0; 1, 2n-1; 2n-1-1, 0; 2n-1-1, 2n-1-1
     
     tot = 0
-    for row, col in zip(range(n), range(n)):
-        tot += max(
-            matrix[row][col],
-            matrix[row][2*n - 1 -col],
-            matrix[2*n -1 -row][col],
-            matrix[2*n -1 -row][2*n -1 -col],
-        )
+    for row in range(n):
+        for col in range(n):
+            tot += max(
+                matrix[row][col],
+                matrix[row][2*n - 1 -col],
+                matrix[2*n -1 -row][col],
+                matrix[2*n -1 -row][2*n -1 -col],
+            )
+    return tot
         
 
 if __name__ == '__main__':
